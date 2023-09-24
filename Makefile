@@ -40,7 +40,15 @@ SRC		= \
 	
 OBJS	= $(SRC:.c=.o)
 
+SRC_BONUS   = \
+    ft_lstnew_bonus.c
+
+OBJS_BONUS  = $(SRC_BONUS:.c=.o)
+
 all: $(NAME)
+
+bonus: $(OBJS) $(OBJS_BONUS)
+    ar rcs $(NAME) $^
 
 $(NAME): $(OBJS)
 	ar rcs $@ $^
@@ -52,3 +60,5 @@ fclean: clean
 	-rm $(NAME)
 
 re: fclean all
+
+.PHONY all clean fclean re bonus
