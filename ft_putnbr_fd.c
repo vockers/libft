@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_putnbr_fd.c                                     :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: vockers <vockers@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/10/02 14:43:48 by vockers       #+#    #+#                 */
+/*   Updated: 2023/10/02 20:36:33 by vockers       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 #include <unistd.h>
@@ -8,7 +20,10 @@ void	ft_putnbr_fd(int n, int fd)
 	unsigned int	un;
 
 	if (n < 0)
+	{
 		un = (unsigned int)n * -1;
+		write(fd, "-", 1);
+	}
 	else
 		un = n;
 	c = un % 10 + '0';

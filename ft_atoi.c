@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_atoi.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: vockers <vockers@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/10/02 14:45:36 by vockers       #+#    #+#                 */
+/*   Updated: 2023/10/02 15:11:19 by vockers       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_atoi(const char *str)
 {
 	int	num;
-	int sign;
+	int	sign;
 
 	sign = 1;
 	while ((*str >= 9 && *str <= 13) || *str == ' ')

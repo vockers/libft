@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_itoa.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: vockers <vockers@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/10/02 14:45:01 by vockers       #+#    #+#                 */
+/*   Updated: 2023/10/02 17:07:58 by vockers       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 #include <stdlib.h>
@@ -11,7 +23,7 @@ static int	n_len(int n)
 		return (1);
 	len = 0;
 	if (n < 0)
-	{		
+	{
 		un = (unsigned int)n * -1;
 		len++;
 	}
@@ -36,7 +48,7 @@ char	*ft_itoa(int n)
 	if (!a)
 		return (NULL);
 	if (n < 0)
-	{		
+	{
 		un = (unsigned int)n * -1;
 	}
 	else
@@ -49,7 +61,7 @@ char	*ft_itoa(int n)
 	}
 	if (n < 0)
 		a[len] = '-';
-	return (a);	
+	return (a);
 }
 
 // #include <stdio.h>

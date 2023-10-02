@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_strlcat.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: vockers <vockers@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/10/02 14:43:11 by vockers       #+#    #+#                 */
+/*   Updated: 2023/10/02 17:05:19 by vockers       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	strlcat(char *dst, const char *src, size_t size)
 {
 	int	i;
-	int	d_len; 
+	int	d_len;
 	int	s_len;
 
 	s_len = ft_strlen(src);
@@ -21,6 +33,5 @@ size_t	strlcat(char *dst, const char *src, size_t size)
 	}
 	if (i < size)
 		dst[i] = '\0';
-
 	return (d_len + s_len);
 }
