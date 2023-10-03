@@ -6,13 +6,13 @@
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/02 14:44:10 by vockers       #+#    #+#                 */
-/*   Updated: 2023/10/02 17:29:22 by vockers       ########   odam.nl         */
+/*   Updated: 2023/10/02 21:29:24 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*str;
 
