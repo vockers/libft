@@ -6,7 +6,7 @@
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/02 14:41:59 by vockers       #+#    #+#                 */
-/*   Updated: 2023/10/02 21:38:30 by vockers       ########   odam.nl         */
+/*   Updated: 2023/10/03 14:06:06 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stddef.h>
 # include <stdio.h>
+# include <string.h>
+# include <bsd/string.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
