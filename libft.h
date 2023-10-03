@@ -6,7 +6,7 @@
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/02 14:41:59 by vockers       #+#    #+#                 */
-/*   Updated: 2023/10/03 14:06:06 by vockers       ########   odam.nl         */
+/*   Updated: 2023/10/03 14:45:51 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stddef.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <string.h>
 # include <bsd/string.h>
 
