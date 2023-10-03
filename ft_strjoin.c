@@ -6,7 +6,7 @@
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/02 14:43:14 by vockers       #+#    #+#                 */
-/*   Updated: 2023/10/02 15:02:25 by vockers       ########   odam.nl         */
+/*   Updated: 2023/10/03 14:57:48 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	new[i] = '\0';
 	return (new);
 }
+
+// int main()
+// {
+// 	char *s1 = "hello, ";
+// 	char *s2 = "world!";
+// 	printf("%s\n", ft_strjoin(s1, s2));
+// 	return 0;
+// }
