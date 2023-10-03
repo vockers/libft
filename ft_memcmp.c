@@ -6,7 +6,7 @@
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/02 14:44:20 by vockers       #+#    #+#                 */
-/*   Updated: 2023/10/02 21:29:50 by vockers       ########   odam.nl         */
+/*   Updated: 2023/10/03 14:21:34 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,10 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+
+// int main()
+// {
+// 	printf("%d\n", ft_memcmp("hello", "wolrd", 1));
+// 	printf("%d\n", strncmp("hello", "wolrd", 1));
+// 	return 0;
+// }

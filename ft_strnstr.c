@@ -6,7 +6,7 @@
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/02 14:42:28 by vockers       #+#    #+#                 */
-/*   Updated: 2023/10/02 15:01:11 by vockers       ########   odam.nl         */
+/*   Updated: 2023/10/03 14:44:09 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,28 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	int	j;
 
 	i = 0;
-	while (big[i])
+	if (*little == '\0')
+		return ((char *)big);
+	while (big[i] && i < len)
 	{
 		j = 0;
-		while (big[i] == little[j])
+		while (big[i] == little[j] && i < len)
 		{
-			if (j == len)
-				return ((char *)(big + i));
 			j++;
+			i++;
 		}
-		i++;
+		if (little[j] == '\0')
+			return ((char *)&big[i - j]);
+		i = i - j + 1;
 	}
-	return ((char *)big);
+	return (NULL);
 }
+
+// int main()
+// {
+// 	char *haystack	= "hello, world!";
+// 	char *needle	= "world";
+// 	printf("%s\n", ft_strnstr(haystack, needle, 12));
+// 	printf("%s\n", strnstr(haystack, needle, 12));
+// 	return 0;
+// }
