@@ -6,7 +6,7 @@
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/02 14:43:11 by vockers       #+#    #+#                 */
-/*   Updated: 2023/10/02 21:29:11 by vockers       ########   odam.nl         */
+/*   Updated: 2023/10/03 14:08:10 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,28 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	s_len = ft_strlen(src);
 	d_len = ft_strlen(dst);
 	while (*dst)
-	{
 		dst++;
-		size--;
-	}
-	i = 0;
+	i = d_len;
 	while (i < size - 1)
 	{
-		dst[i] = src[i];
+		*dst++ = *src++;
 		i++;
 	}
 	if (i < size)
-		dst[i] = '\0';
+		*dst = '\0';
 	return (d_len + s_len);
 }
+
+// int main()
+// {
+// 	char dst[20] = "hello, ";
+// 	char *src = "worldooooooooooooooooooo";
+// 	ft_strlcat(dst, dst, 10);
+// 	printf("%s\n", dst);
+
+// 	char dst2[20] = "hello, ";
+// 	strlcat(dst2, dst2, 10);
+
+// 	printf("%s\n", dst2);
+// 	return 0;
+// }
