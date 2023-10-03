@@ -6,7 +6,7 @@
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/02 14:43:42 by vockers       #+#    #+#                 */
-/*   Updated: 2023/10/02 17:11:03 by vockers       ########   odam.nl         */
+/*   Updated: 2023/10/03 15:31:36 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,48 @@ int	ft_count_words(char const *s, char c)
 	while (*s)
 	{
 		if (*s == c)
-		{
-			if (!new_word)
-				count++;
 			new_word = 1;
-		}
-		else
+		else if (new_word)
+		{
+			count++;
 			new_word = 0;
+		}
 		s++;
 	}
 	return (count);
+}
+
+char	*ft_strndup(const char *s, size_t n)
+{
+	char	*new;
+	int		i;
+	int		len;
+
+	len = 0;
+	while (len < n && s[len])
+		len++;
+	new = (char *)malloc(sizeof(char) * (len + 1));
+	i = 0;
+	while (s[i] && i < n)
+	{
+		new[i] = s[i];
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
+}
+
+int	ft_strclen(const char *str, char c)
+{
+	int	len;
+
+	len = 0;
+	while (*str != '\0' && *str != c)
+	{
+		len++;
+		str++;
+	}
+	return (len);
 }
 
 char	**ft_split(char const *s, char c)
@@ -40,17 +72,35 @@ char	**ft_split(char const *s, char c)
 	char	**new;
 	char	*start;
 	int		i;
-	int		count;
+	int		j;
 	int		new_word;
 
-	i = 0;
-	count = ft_count_words(s, c);
 	new_word = 1;
-	new = (char **)malloc(sizeof(char *) * (count + 1));
-	while (*s)
+	new = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		s++;
+		if (s[i] == c)
+			new_word = 1;
+		else if (new_word)
+		{
+			new[j] = ft_strndup(&s[i], ft_strclen(&s[i], c));
+			new_word = 0;
+			j++;
+		}
+		i++;
 	}
-	new[count] = NULL;
+	new[j] = NULL;
 	return (new);
 }
+
+// int main()
+// {
+// 	char **strs = ft_split(" Hello,  ,  world!   ", ' ');
+// 	while (*strs)
+// 	{
+// 		printf("%s\n", *strs);
+// 		strs++;
+// 	}
+// }
