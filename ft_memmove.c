@@ -6,7 +6,7 @@
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/02 17:37:49 by vockers       #+#    #+#                 */
-/*   Updated: 2023/10/03 13:32:37 by vockers       ########   odam.nl         */
+/*   Updated: 2023/10/03 16:32:32 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
-	if (s < d && d - s < n)
+	if (s < d && d - s < (int)n)
 	{
 		i = n - 1;
 		while (i >= 0)
@@ -32,7 +32,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	else
 	{
 		i = 0;
-		while (i < n)
+		while (i < (int)n)
 		{
 			d[i] = s[i];
 			i++;

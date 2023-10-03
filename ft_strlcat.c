@@ -6,7 +6,7 @@
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/02 14:43:11 by vockers       #+#    #+#                 */
-/*   Updated: 2023/10/03 14:08:10 by vockers       ########   odam.nl         */
+/*   Updated: 2023/10/03 16:32:45 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	while (*dst)
 		dst++;
 	i = d_len;
-	while (i < size - 1)
+	while (i < (int)size - 1)
 	{
 		*dst++ = *src++;
 		i++;
 	}
-	if (i < size)
+	if (i < (int)size)
 		*dst = '\0';
 	return (d_len + s_len);
 }

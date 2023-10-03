@@ -6,7 +6,7 @@
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/02 14:43:42 by vockers       #+#    #+#                 */
-/*   Updated: 2023/10/03 15:31:36 by vockers       ########   odam.nl         */
+/*   Updated: 2023/10/03 16:33:47 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ char	*ft_strndup(const char *s, size_t n)
 	int		len;
 
 	len = 0;
-	while (len < n && s[len])
+	while (len < (int)n && s[len])
 		len++;
 	new = (char *)malloc(sizeof(char) * (len + 1));
 	i = 0;
-	while (s[i] && i < n)
+	while (s[i] && i < (int)n)
 	{
 		new[i] = s[i];
 		i++;
@@ -70,7 +70,6 @@ int	ft_strclen(const char *str, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**new;
-	char	*start;
 	int		i;
 	int		j;
 	int		new_word;
