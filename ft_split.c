@@ -44,6 +44,8 @@ char	*ft_strndup(const char *s, size_t n)
 	while (len < (int)n && s[len])
 		len++;
 	new = (char *)malloc(sizeof(char) * (len + 1));
+	if (!new)
+		return (NULL);
 	i = 0;
 	while (s[i] && i < (int)n)
 	{
@@ -76,6 +78,8 @@ char	**ft_split(char const *s, char c)
 
 	new_word = 1;
 	new = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
+	if (!new)
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (s[i])
