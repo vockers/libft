@@ -14,35 +14,42 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	i;
-	int	d_len;
-	int	s_len;
+	char		*d;
+	const char	*s;
+	int			d_len;
+	int			n;
 
-	s_len = ft_strlen(src);
-	d_len = ft_strlen(dst);
-	while (*dst)
-		dst++;
-	i = d_len;
-	while (i < (int)size - 1)
+	d = dst;
+	s = src;
+	n = size;
+	while (n-- && *d)
+		d++;
+	d_len = d - dst;
+	n = size - d_len;
+	if (n == 0)
+		return (d_len + ft_strlen(src));
+	while (*s)
 	{
-		*dst++ = *src++;
-		i++;
+		if (n != 1)
+		{
+			*d++ = *s;
+			n--;
+		}
+		s++;
 	}
-	if (i < (int)size)
-		*dst = '\0';
-	return (d_len + s_len);
+	*d = '\0';
+	return (d_len + (s - src));
 }
+
+// #include <stdio.h>
+// #include <bsd/string.h>
 
 // int main()
 // {
-// 	char dst[20] = "hello, ";
-// 	char *src = "worldooooooooooooooooooo";
-// 	ft_strlcat(dst, dst, 10);
-// 	printf("%s\n", dst);
+// 	char dst[10] = "a";
+// 	printf("%lu\n", ft_strlcat(dst, "lorem ipsum dolor sit amet", 0));
+// 	char dst2[10] = "a";
+// 	printf("%lu\n", strlcat(dst2, "lorem ipsum dolor sit amet", 1));
 
-// 	char dst2[20] = "hello, ";
-// 	strlcat(dst2, dst2, 10);
-
-// 	printf("%s\n", dst2);
 // 	return 0;
 // }
