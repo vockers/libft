@@ -14,32 +14,34 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
-	i = 0;
 	if (*little == '\0')
 		return ((char *)big);
-	while (big[i] && i < (int)len)
+	i = 0;
+	while (big[i] && i < len)
 	{
 		j = 0;
-		while (big[i] == little[j] && i < (int)len)
+		while (big[i + j] == little[j] && big[i + j] && i + j < len)
 		{
 			j++;
-			i++;
+			if (little[j] == '\0')
+				return ((char *)big + i);
 		}
-		if (little[j] == '\0')
-			return ((char *)&big[i - j]);
-		i = i - j + 1;
+		i++;
 	}
 	return (NULL);
 }
 
+// #include <stdio.h>
+// #include <bsd/string.h>
+
 // int main()
 // {
-// 	char *haystack	= "hello, world!";
-// 	char *needle	= "world";
-// 	printf("%s\n", ft_strnstr(haystack, needle, 12));
-// 	printf("%s\n", strnstr(haystack, needle, 12));
+// 	char *haystack	= "aaxx";
+// 	char *needle	= "xx";
+// 	haystack = ft_strnstr((void*)0, needle, 3);
+// 	// haystack = strnstr((void*)0, needle, 3);
 // 	return 0;
 // }
