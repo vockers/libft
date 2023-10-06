@@ -17,6 +17,14 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+enum
+{
+	LIBFT_IS_ALNUM	= 8,
+	LIBFT_IS_ALPHA	= 1024,
+	LIBFT_IS_DIGIT	= 2048,
+	LIBFT_IS_PRINT	= 16384
+};
+
 /* C type */
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
