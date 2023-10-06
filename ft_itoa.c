@@ -12,8 +12,6 @@
 
 #include "libft.h"
 
-#include <stdlib.h>
-
 static int	n_len(int n)
 {
 	int				len;
