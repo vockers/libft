@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_count_words(char const *s, char c)
+static int	ft_count_words(char const *s, char c)
 {
 	int	count;
 	int	new_word;
@@ -33,7 +33,7 @@ int	ft_count_words(char const *s, char c)
 	return (count);
 }
 
-char	*ft_strndup(const char *s, size_t n)
+static char	*ft_strndup(const char *s, size_t n)
 {
 	char	*new;
 	int		i;
@@ -55,7 +55,7 @@ char	*ft_strndup(const char *s, size_t n)
 	return (new);
 }
 
-int	ft_strclen(const char *str, char c)
+static int	ft_strclen(const char *str, char c)
 {
 	int	len;
 
@@ -71,7 +71,6 @@ int	ft_strclen(const char *str, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**new;
-	int		i;
 	int		j;
 	int		new_word;
 
@@ -79,19 +78,20 @@ char	**ft_split(char const *s, char c)
 	new = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!new)
 		return (NULL);
-	i = 0;
 	j = 0;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] == c)
+		if (*s == c)
 			new_word = 1;
 		else if (new_word)
 		{
-			new[j] = ft_strndup(&s[i], ft_strclen(&s[i], c));
+			new[j] = ft_strndup(s, ft_strclen(s, c));
+			if (!new[j])
+				return (NULL);
 			new_word = 0;
 			j++;
 		}
-		i++;
+		s++;
 	}
 	new[j] = NULL;
 	return (new);
