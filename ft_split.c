@@ -87,7 +87,12 @@ char	**ft_split(char const *s, char c)
 		{
 			new[j] = ft_strndup(s, ft_strclen(s, c));
 			if (!new[j])
+			{
+				while (j > 0)
+					free(new[--j]);
+				free(new);
 				return (NULL);
+			}
 			new_word = 0;
 			j++;
 		}
