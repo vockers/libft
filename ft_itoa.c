@@ -46,9 +46,7 @@ char	*ft_itoa(int n)
 	if (!a)
 		return (NULL);
 	if (n < 0)
-	{
 		un = (unsigned int)n * -1;
-	}
 	else
 		un = n;
 	a[len] = '\0';
