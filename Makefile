@@ -1,61 +1,55 @@
 NAME		= libft.a
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -I.
 
 SRC			= \
-	ft_atoi.c \
-	ft_bzero.c \
-	ft_calloc.c \
-	ft_isalnum.c \
-	ft_isalpha.c \
-	ft_isascii.c \
-	ft_isdigit.c \
-	ft_isprint.c \
-	ft_memcmp.c \
-	ft_memchr.c \
-	ft_memcpy.c \
-	ft_memmove.c \
-	ft_memset.c \
-	ft_strchr.c \
-	ft_strdup.c \
-	ft_strlcat.c \
-	ft_strlcpy.c \
-	ft_strlen.c \
-	ft_strncmp.c \
-	ft_strnstr.c \
-	ft_strrchr.c \
-	ft_tolower.c \
-	ft_toupper.c \
-	ft_substr.c \
-	ft_putchar_fd.c \
-	ft_putendl_fd.c \
-	ft_putnbr_fd.c \
-	ft_putstr_fd.c \
-	ft_strjoin.c \
-	ft_itoa.c \
-	ft_strtrim.c \
-	ft_striteri.c \
-	ft_strmapi.c \
-	ft_split.c \
+	ctype/ft_isalnum.c \
+	ctype/ft_isalpha.c \
+	ctype/ft_isascii.c \
+	ctype/ft_isdigit.c \
+	ctype/ft_isprint.c \
+	ctype/ft_tolower.c \
+	ctype/ft_toupper.c \
+	list/ft_lstadd_back.c \
+	list/ft_lstadd_front.c \
+	list/ft_lstclear.c \
+	list/ft_lstdelone.c \
+	list/ft_lstiter.c \
+	list/ft_lstlast.c \
+	list/ft_lstmap.c \
+	list/ft_lstnew.c \
+	list/ft_lstsize.c \
+	stdio/ft_putchar_fd.c \
+	stdio/ft_putendl_fd.c \
+	stdio/ft_putnbr_fd.c \
+	stdio/ft_putstr_fd.c \
+	stdlib/ft_atoi.c \
+	stdlib/ft_calloc.c \
+	stdlib/ft_itoa.c \
+	string/ft_bzero.c \
+	string/ft_memchr.c \
+	string/ft_memcmp.c \
+	string/ft_memcpy.c \
+	string/ft_memmove.c \
+	string/ft_memset.c \
+	string/ft_split.c \
+	string/ft_strchr.c \
+	string/ft_strdup.c \
+	string/ft_striteri.c \
+	string/ft_strjoin.c \
+	string/ft_strlcat.c \
+	string/ft_strlcpy.c \
+	string/ft_strlen.c \
+	string/ft_strmapi.c \
+	string/ft_strncmp.c \
+	string/ft_strnstr.c \
+	string/ft_strrchr.c \
+	string/ft_strtrim.c \
+	string/ft_substr.c \
 
-SRC_BONUS	= \
-	ft_lstnew_bonus.c \
-	ft_lstadd_front_bonus.c \
-	ft_lstsize_bonus.c \
-	ft_lstlast_bonus.c \
-	ft_lstadd_back_bonus.c \
-	ft_lstdelone_bonus.c \
-	ft_lstclear_bonus.c \
-	ft_lstiter_bonus.c \
-	ft_lstmap_bonus.c \
-	
 OBJS		= $(SRC:.c=.o)
-OBJS_BONUS	= $(SRC_BONUS:.c=.o)
 
 all: $(NAME)
-
-bonus: $(OBJS) $(OBJS_BONUS)
-	ar -rcs $(NAME) $^
 
 $(NAME): $(OBJS)
 	ar -rcs $@ $^
