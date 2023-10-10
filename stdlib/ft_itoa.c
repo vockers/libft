@@ -12,52 +12,50 @@
 
 #include "libft.h"
 
-static int	n_len(int n)
+static void	reverse_str(char *s, int len)
 {
-	int				len;
-	unsigned int	un;
+	int		start;
+	int		end;
+	char	tmp;
 
-	if (n == 0)
-		return (1);
-	len = 0;
-	if (n < 0)
+	start = 0;
+	end = len - 1;
+	while (start < end)
 	{
-		un = (unsigned int)n * -1;
-		len++;
+		tmp = s[start];
+		s[start] = s[end];
+		s[end] = tmp;
+		start++;
+		end--;
 	}
-	else
-		un = n;
-	while (un > 0)
-	{
-		un /= 10;
-		len++;
-	}
-	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	char			*a;
+	char			*new;
 	unsigned int	un;
 	int				len;
+	char			buffer[11];
 
-	len = n_len(n);
-	a = (char *)malloc(sizeof(char) * (len + 1));
-	if (!a)
-		return (NULL);
 	if (n < 0)
 		un = (unsigned int)n * -1;
 	else
 		un = n;
-	a[len] = '\0';
-	while (len > 0)
+	len = 0;
+	while (un > 0)
 	{
-		a[--len] = (un % 10) + '0';
+		buffer[len++] = (un % 10) + '0';
 		un /= 10;
 	}
 	if (n < 0)
-		a[len] = '-';
-	return (a);
+		buffer[len++] = '-';
+	new = (char *)malloc(sizeof(char) * (len + 1));
+	if (!new)
+		return (NULL);
+	reverse_str(buffer, len);
+	ft_memcpy(new, buffer, len);
+	new[len] = '\0';
+	return (new);
 }
 
 // #include <stdio.h>
