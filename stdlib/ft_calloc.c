@@ -15,12 +15,23 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*new;
-	size_t	mem_size;
 
-	mem_size = nmemb * size;
-	new = malloc(mem_size);
+	if (size && (nmemb * size) / size != nmemb)
+		return (NULL);
+	new = malloc(nmemb * size);
 	if (!new)
 		return (NULL);
-	ft_bzero(new, mem_size);
+	ft_bzero(new, nmemb * size);
 	return (new);
 }
+
+// #include <stdio.h>
+
+// int main()
+// {
+// 	void *ft_res = ft_calloc(-5, -5);
+// 	void *std_res = calloc(-5, -5);
+// 	printf("%p\n", ft_res);
+// 	printf("%p\n", std_res);
+// 	return 0;
+// }
