@@ -23,6 +23,7 @@ SRC			= \
 	stdio/ft_putendl_fd.c \
 	stdio/ft_putnbr_fd.c \
 	stdio/ft_putstr_fd.c \
+	stdio/ft_putunbr_fd.c \
 	stdlib/ft_atoi.c \
 	stdlib/ft_calloc.c \
 	stdlib/ft_itoa.c \
