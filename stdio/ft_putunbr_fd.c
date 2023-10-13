@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putnbr_fd.c                                     :+:    :+:            */
+/*   ft_putunbr_fd.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
@@ -14,7 +14,7 @@
 
 void	ft_putunbr_fd(unsigned int n, int fd)
 {
-	char			c;
+	char	c;
 
 	c = n % 10 + '0';
 	n /= 10;
