@@ -30,6 +30,7 @@ SRC			= \
 	stdlib/ft_atoi.c \
 	stdlib/ft_calloc.c \
 	stdlib/ft_itoa.c \
+	stdlib/ft_utoa.c \
 	string/ft_bzero.c \
 	string/ft_memchr.c \
 	string/ft_memcmp.c \

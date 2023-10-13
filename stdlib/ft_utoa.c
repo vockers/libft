@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_itoa.c                                          :+:    :+:            */
+/*   ft_utoa.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
@@ -12,23 +12,30 @@
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+char	*ft_utoa(unsigned int n)
 {
-	char	*a;
-	char	*tmp;
+	char		*a;
+	static int	index = 0;
+	static int	len = 1;
 
-	if (n < 0)
+	index = 0;
+	if (n / 10 != 0)
 	{
-		tmp = ft_utoa((unsigned int)-n);
-		if (!tmp)
-			return (NULL);
-		a = ft_strjoin("-", tmp);
-		free(tmp);
+		len++;
+		a = ft_utoa(n / 10);
 		if (!a)
 			return (NULL);
+		a[index++] = n % 10 + '0';
 	}
 	else
-		a = ft_utoa((unsigned int)n);
+	{
+		a = (char *)malloc(sizeof(char) * len + 1);
+		if (!a)
+			return (NULL);
+		a[index++] = n % 10 + '0';
+		a[len] = '\0';
+		len = 1;
+	}
 	return (a);
 }
 
@@ -37,15 +44,9 @@ char	*ft_itoa(int n)
 
 // int	main(void)
 // {
-// 	printf("%s\n", ft_itoa(0));
-// 	printf("%s\n", ft_itoa(5));
-// 	printf("%s\n", ft_itoa(25));
-// 	printf("%s\n", ft_itoa(234));
-// 	printf("%s\n\n", ft_itoa(INT_MAX));
-
-// 	printf("%s\n", ft_itoa(-0));
-// 	printf("%s\n", ft_itoa(-5));
-// 	printf("%s\n", ft_itoa(-25));
-// 	printf("%s\n", ft_itoa(-234));
-// 	printf("%s\n", ft_itoa(INT_MIN));
+// 	printf("%s\n", ft_utoa(0));
+// 	printf("%s\n", ft_utoa(5));
+// 	printf("%s\n", ft_utoa(25));
+// 	printf("%s\n", ft_utoa(234));
+// 	printf("%s\n", ft_utoa(INT_MAX));
 // }
