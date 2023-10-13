@@ -1,46 +1,39 @@
+#include <criterion/criterion.h>
+#include <stdlib.h>
+
 #include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-#define ANSI_COLOR_RED		"\x1b[31m"
-#define ANSI_COLOR_GREEN	"\x1b[32m"
-#define ANSI_COLOR_YELLOW	"\x1b[33m"
-#define ANSI_COLOR_BLUE		"\x1b[34m"
-#define ANSI_COLOR_MAGENTA	"\x1b[35m"
-#define ANSI_COLOR_CYAN		"\x1b[36m"
-#define ANSI_COLOR_RESET	"\x1b[0m"
-
-void	test(const char *arg)
+int test_atoi(const char *arg) 
 {
-	int		ft_res	= ft_atoi(arg);
-	int		std_res	= atoi(arg);
-	
-	if (ft_res != std_res)
-		printf(ANSI_COLOR_RED "KO" ANSI_COLOR_RESET ":\t%d\n\t%d", ft_res, std_res);	
-	else
-		printf(ANSI_COLOR_GREEN "OK" ANSI_COLOR_RESET " ");
+	return ft_atoi(arg) == atoi(arg);
 }
 
-int	main()
-{
-	printf("ft_atoi:\t");
-	test("1");
-	test("a1");
-	test("--1");
-	test("++1");
-	test("+1");
-	test("-1");
-	test("0");
-	test("+42test");
-	test("+101");
-	test("2147483647");
-	test("-2147483648");
-	test("-+42");
-	test("+-42");
-	test("+");
-	test("-");
-	printf("\n");
-	return 0;
-}
+Test(atoi_tests, test1) { cr_expect(test_atoi("1")); }
+
+Test(atoi_tests, test2) { cr_expect(test_atoi("a1")); }
+
+Test(atoi_tests, test3) { cr_expect(test_atoi("--1")); }
+
+Test(atoi_tests, test4) { cr_expect(test_atoi("++1")); }
+
+Test(atoi_tests, test5) { cr_expect(test_atoi("+1")); }
+
+Test(atoi_tests, test6) { cr_expect(test_atoi("-1")); }
+
+Test(atoi_tests, test7) { cr_expect(test_atoi("0")); }
+
+Test(atoi_tests, test8) { cr_expect(test_atoi("+42test")); }
+
+Test(atoi_tests, test9) { cr_expect(test_atoi("+101")); }
+
+Test(atoi_tests, test10) { cr_expect(test_atoi("2147483647")); }
+
+Test(atoi_tests, test11) { cr_expect(test_atoi("-2147483648")); }
+
+Test(atoi_tests, test12) { cr_expect(test_atoi("-+42")); }
+
+Test(atoi_tests, test13) { cr_expect(test_atoi("+-42")); }
+
+Test(atoi_tests, test14) { cr_expect(test_atoi("+")); }
+
+Test(atoi_tests, test15) { cr_expect(test_atoi("-")); }
