@@ -65,16 +65,18 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 /* STDLIB */
+int		ft_abs(int x);
+uint	ft_uabs(int x);
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 
 /* PUT */
 void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
+int		ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
+int		ft_putnbr_fd(int n, int fd);
 void	ft_putptr_fd(void *ptr, int fd);
-void	ft_putunbr_fd(unsigned int n, int fd);
+int		ft_putunbr_fd(unsigned int n, int fd);
 void	ft_putunbr_base_fd(unsigned int n, char *base, int fd);
 
 /* LINKED LIST */

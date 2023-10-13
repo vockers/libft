@@ -30,13 +30,6 @@ static void	reverse_str(char *s, int len)
 	}
 }
 
-static unsigned int	uabs(int x)
-{
-	if (x < 0)
-		return ((unsigned int)-x);
-	return (x);
-}
-
 char	*ft_itoa(int n)
 {
 	char			*new;
@@ -44,7 +37,7 @@ char	*ft_itoa(int n)
 	int				len;
 	char			buffer[11];
 
-	un = uabs(n);
+	un = ft_uabs(n);
 	len = 0;
 	if (un == 0)
 		buffer[len++] = '0';

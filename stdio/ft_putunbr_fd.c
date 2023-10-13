@@ -12,15 +12,26 @@
 
 #include "libft.h"
 
-void	ft_putunbr_fd(unsigned int n, int fd)
+static int	putnbr_recursive(unsigned int num, char *buffer, int index)
 {
-	char	c;
+	char	d;
 
-	c = n % 10 + '0';
-	n /= 10;
-	if (n != 0)
-		ft_putunbr_fd(n, fd);
-	write(fd, &c, 1);
+	d = num % 10 + '0';
+	num /= 10;
+	if (num > 0)
+		index = putnbr_recursive(num, buffer, index);
+	buffer[index] = d;
+	return (index + 1);
+}
+
+int	ft_putunbr_fd(unsigned int n, int fd)
+{
+	char	buffer[11];
+	int		len;
+
+	len = putnbr_recursive(n, buffer, 0);
+	write(fd, buffer, len);
+	return (len);
 }
 
 // #include <limits.h>

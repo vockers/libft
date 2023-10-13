@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putstr_fd.c                                     :+:    :+:            */
+/*   ft_abs.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/10/02 14:43:45 by vockers       #+#    #+#                 */
-/*   Updated: 2023/10/02 20:23:54 by vockers       ########   odam.nl         */
+/*   Created: 2023/10/02 14:45:29 by vockers       #+#    #+#                 */
+/*   Updated: 2023/10/03 14:52:33 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_putstr_fd(char *s, int fd)
+int	ft_abs(int x)
 {
-	int	len;
+	if (x < 0)
+		return (-x);
+	return (x);
+}
 
-	len = ft_strlen(s);
-	write(fd, s, len);
-	return (len);
+unsigned int	ft_uabs(int x)
+{
+	if (x < 0)
+		return ((unsigned int)-x);
+	return (x);
 }
