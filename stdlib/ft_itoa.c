@@ -12,49 +12,48 @@
 
 #include "libft.h"
 
-static void	reverse_str(char *s, int len)
+static char	*itoa_recursive(unsigned int n, int index, int *len)
 {
-	int		start;
-	int		end;
-	char	tmp;
+	char	*a;
+	char	d;
 
-	start = 0;
-	end = len - 1;
-	while (start < end)
+	d = n % 10 + '0';
+	n /= 10;
+	if (n != 0)
 	{
-		tmp = s[start];
-		s[start] = s[end];
-		s[end] = tmp;
-		start++;
-		end--;
+		a = itoa_recursive(n, index + 1, len);
+		if (!a)
+			return (NULL);
+		a[(*len)++] = d;
 	}
+	else
+	{
+		a = (char *)malloc(sizeof(char) * (index + 2));
+		if (!a)
+			return (NULL);
+		a[(*len)++] = d;
+		a[index + 1] = '\0';
+	}
+	return (a);
 }
 
 char	*ft_itoa(int n)
 {
-	char			*new;
-	unsigned int	un;
-	int				len;
-	char			buffer[11];
+	char	*a;
+	int		len;
 
-	un = ft_uabs(n);
 	len = 0;
-	if (un == 0)
-		buffer[len++] = '0';
-	while (un > 0)
-	{
-		buffer[len++] = (un % 10) + '0';
-		un /= 10;
-	}
 	if (n < 0)
-		buffer[len++] = '-';
-	new = (char *)malloc(sizeof(char) * (len + 1));
-	if (!new)
-		return (NULL);
-	reverse_str(buffer, len);
-	ft_memcpy(new, buffer, len);
-	new[len] = '\0';
-	return (new);
+	{
+		len++;
+		a = itoa_recursive((unsigned int)-n, 1, &len);
+		if (!a)
+			return (NULL);
+		a[0] = '-';
+	}
+	else
+		a = itoa_recursive((unsigned int)n, 0, &len);
+	return (a);
 }
 
 // #include <stdio.h>
