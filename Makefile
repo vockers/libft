@@ -22,6 +22,7 @@ SRC			= \
 	stdio/ft_putchar_fd.c \
 	stdio/ft_putendl_fd.c \
 	stdio/ft_putnbr_fd.c \
+	stdio/ft_putptr_fd.c \
 	stdio/ft_putstr_fd.c \
 	stdio/ft_putunbr_fd.c \
 	stdio/ft_putunbr_base_fd.c \
@@ -36,6 +37,7 @@ SRC			= \
 	string/ft_memset.c \
 	string/ft_split.c \
 	string/ft_strchr.c \
+	string/ft_strcpy.c \
 	string/ft_strdup.c \
 	string/ft_striteri.c \
 	string/ft_strjoin.c \
