@@ -38,11 +38,8 @@ static int	ft_strclen(const char *str, char c)
 	int	len;
 
 	len = 0;
-	while (*str != '\0' && *str != c)
-	{
+	while (str[len] != '\0' && str[len] != c)
 		len++;
-		str++;
-	}
 	return (len);
 }
 
@@ -58,26 +55,28 @@ char	**ft_split(char const *s, char c)
 {
 	char	**new;
 	int		new_word;
+	int		i;
 
 	new = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!new)
 		return (NULL);
 	new_word = 1;
+	i = 0;
 	while (*s)
 	{
 		if (*s == c)
 			new_word = 1;
 		else if (new_word)
 		{
-			*new = ft_strndup(s, ft_strclen(s, c));
-			if (*new)
+			new[i] = ft_strndup(s, ft_strclen(s, c));
+			if (!new[i])
 				return (ft_delete_strs(new));
 			new_word = 0;
-			new++;
+			i++;
 		}
 		s++;
 	}
-	*new = NULL;
+	new[i] = NULL;
 	return (new);
 }
 

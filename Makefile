@@ -42,6 +42,8 @@ SRC			= \
 	string/ft_strlen.c \
 	string/ft_strmapi.c \
 	string/ft_strncmp.c \
+	string/ft_strndup.c \
+	string/ft_strnlen.c \
 	string/ft_strnstr.c \
 	string/ft_strrchr.c \
 	string/ft_strtrim.c \
@@ -55,7 +57,7 @@ $(NAME): $(OBJS)
 	ar -rcs $@ $^
 
 clean:
-	-rm -f $(OBJS) $(OBJS_BONUS)
+	-rm -f $(OBJS)
 
 fclean: clean
 	-rm -f $(NAME)
