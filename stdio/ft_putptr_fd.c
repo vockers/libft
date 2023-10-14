@@ -30,6 +30,11 @@ int	ft_putptr_fd(void *ptr, int fd)
 {
 	char	hex[17];
 
+	if (ptr == NULL)
+	{
+		write(fd, "(nil)", 5);
+		return (5);
+	}
 	ft_strcpy(hex, "0123456789abcdef");
 	write(fd, "0x", 2);
 	return (ft_putptr_fd_recursive((uintptr_t)ptr, hex, fd) + 2);
@@ -39,9 +44,9 @@ int	ft_putptr_fd(void *ptr, int fd)
 
 // int	main(void)
 // {
-// 	int i = 42;
-// 	int j = ft_putptr_fd(&i, 1);
+// 	// int i = 42;
+// 	int j = ft_putptr_fd(NULL, 1);
 // 	printf("\t%d\n", j);
-// 	printf("%p\t%d\n", &i, j);
+// 	printf("%p\t%d\n", NULL, j);
 // 	return (0);
 // }
