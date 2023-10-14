@@ -22,7 +22,7 @@ static	unsigned int	get_radix(char *base)
 	return (radix);
 }
 
-static void	putunbr_base_recursive(
+static int	putunbr_base_recursive(
 	unsigned int n,
 	char *base,
 	unsigned int radix,
@@ -30,22 +30,25 @@ static void	putunbr_base_recursive(
 )
 {
 	char	c;
+	int		len;
 
+	len = 0;
 	c = base[n % radix];
 	n /= radix;
 	if (n != 0)
-		putunbr_base_recursive(n, base, radix, fd);
+		len = putunbr_base_recursive(n, base, radix, fd);
 	write(fd, &c, 1);
+	return (len + 1);
 }
 
-void	ft_putunbr_base_fd(unsigned int n, char *base, int fd)
+int	ft_putunbr_base_fd(unsigned int n, char *base, int fd)
 {
 	unsigned int	radix;
 
 	radix = get_radix(base);
 	if (radix <= 1)
-		return ;
-	putunbr_base_recursive(n, base, radix, fd);
+		return (0);
+	return (putunbr_base_recursive(n, base, radix, fd));
 }
 
 // #include <stdio.h>
@@ -53,32 +56,35 @@ void	ft_putunbr_base_fd(unsigned int n, char *base, int fd)
 
 // int	main(void)
 // {
-// 	ft_putunbr_base_fd(0, "0123456789abcdef", 1);
-// 	write(1, "\n", 1);
+// 	printf ("\t%d\n", ft_putunbr_base_fd(255, "01", 1));
+// 	printf("\n");
+
+// 	printf ("\t%d\n", ft_putunbr_base_fd(0, "0123456789abcdef", 1));
+// 	printf("\n");
 // 	printf("%x\n\n", 0);
 
-// 	ft_putunbr_base_fd(4, "0123456789abcdef", 1);
-// 	write(1, "\n", 1);
+// 	printf ("\t%d\n", ft_putunbr_base_fd(4, "0123456789abcdef", 1));
+// 	printf("\n");
 // 	printf("%x\n\n", 4);
 
-// 	ft_putunbr_base_fd(25, "0123456789abcdef", 1);
-// 	write(1, "\n", 1);
+// 	printf ("\t%d\n", ft_putunbr_base_fd(25, "0123456789abcdef", 1));
+// 	printf("\n");
 // 	printf("%x\n\n", 25);
 
-// 	ft_putunbr_base_fd(50, "0123456789abcdef", 1);
-// 	write(1, "\n", 1);
+// 	printf ("\t%d\n", ft_putunbr_base_fd(50, "0123456789abcdef", 1));
+// 	printf("\n");
 // 	printf("%x\n\n", 50);
 
-// 	ft_putunbr_base_fd(358, "0123456789abcdef", 1);
-// 	write(1, "\n", 1);
+// 	printf ("\t%d\n", ft_putunbr_base_fd(358, "0123456789abcdef", 1));
+// 	printf("\n");
 // 	printf("%x\n\n", 358);
 
-// 	ft_putunbr_base_fd(1242564, "0123456789abcdef", 1);
-// 	write(1, "\n", 1);
+// 	printf ("\t%d\n", ft_putunbr_base_fd(1242564, "0123456789abcdef", 1));
+// 	printf("\n");
 // 	printf("%x\n\n", 1242564);
 
-// 	ft_putunbr_base_fd(INT_MAX, "0123456789abcdef", 1);
-// 	write(1, "\n", 1);
+// 	printf ("\t%d\n", ft_putunbr_base_fd(INT_MAX, "0123456789abcdef", 1));
+// 	printf("\n");
 // 	printf("%x\n\n", INT_MAX);
 
 // 	return (0);
