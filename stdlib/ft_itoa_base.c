@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static char	*itoa_base_recursive(unsigned int n, char *base, int radix)
 {
@@ -75,6 +74,7 @@ char	*ft_itoa_base(int n, char *base)
 }
 
 // #include <limits.h>
+// #include <stdio.h>
 
 // int	main(void)
 // {

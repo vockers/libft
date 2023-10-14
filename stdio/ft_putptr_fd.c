@@ -12,24 +12,27 @@
 
 #include "libft.h"
 
-static void	ft_putptr_fd_recursive(uintptr_t ptr, char *hex, int fd)
+static int	ft_putptr_fd_recursive(uintptr_t ptr, char *hex, int fd)
 {
 	char	c;
+	int		len;
 
+	len = 0;
 	c = hex[ptr % 16];
 	ptr /= 16;
 	if (ptr != 0)
-		ft_putptr_fd_recursive(ptr, hex, fd);
+		len = ft_putptr_fd_recursive(ptr, hex, fd);
 	write(fd, &c, 1);
+	return (len + 1);
 }
 
-void	ft_putptr_fd(void *ptr, int fd)
+int	ft_putptr_fd(void *ptr, int fd)
 {
 	char	hex[17];
 
 	ft_strcpy(hex, "0123456789abcdef");
 	write(fd, "0x", 2);
-	ft_putptr_fd_recursive((uintptr_t)ptr, hex, fd);
+	return (ft_putptr_fd_recursive((uintptr_t)ptr, hex, fd) + 2);
 }
 
 // #include <stdio.h>
@@ -37,8 +40,8 @@ void	ft_putptr_fd(void *ptr, int fd)
 // int	main(void)
 // {
 // 	int i = 42;
-// 	ft_putptr_fd(&i, 1);
-// 	write(1, "\n", 1);
-// 	printf("%p\n", &i);
+// 	int j = ft_putptr_fd(&i, 1);
+// 	printf("\t%d\n", j);
+// 	printf("%p\t%d\n", &i, j);
 // 	return (0);
 // }
