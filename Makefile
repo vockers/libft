@@ -26,12 +26,12 @@ SRC			= \
 	io/ft_putstr_fd.c \
 	io/ft_putunbr_fd.c \
 	io/ft_putunbr_base_fd.c \
-	stdlib/ft_abs.c \
-	stdlib/ft_atoi.c \
-	stdlib/ft_calloc.c \
-	stdlib/ft_itoa.c \
-	stdlib/ft_utoa.c \
-	stdlib/ft_utoa_base.c \
+	memory/ft_abs.c \
+	memory/ft_atoi.c \
+	memory/ft_calloc.c \
+	memory/ft_itoa.c \
+	memory/ft_utoa.c \
+	memory/ft_utoa_base.c \
 	string/ft_bzero.c \
 	string/ft_memchr.c \
 	string/ft_memcmp.c \
