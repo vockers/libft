@@ -19,13 +19,13 @@ SRC			= \
 	list/ft_lstmap.c \
 	list/ft_lstnew.c \
 	list/ft_lstsize.c \
-	stdio/ft_putchar_fd.c \
-	stdio/ft_putendl_fd.c \
-	stdio/ft_putnbr_fd.c \
-	stdio/ft_putptr_fd.c \
-	stdio/ft_putstr_fd.c \
-	stdio/ft_putunbr_fd.c \
-	stdio/ft_putunbr_base_fd.c \
+	io/ft_putchar_fd.c \
+	io/ft_putendl_fd.c \
+	io/ft_putnbr_fd.c \
+	io/ft_putptr_fd.c \
+	io/ft_putstr_fd.c \
+	io/ft_putunbr_fd.c \
+	io/ft_putunbr_base_fd.c \
 	stdlib/ft_abs.c \
 	stdlib/ft_atoi.c \
 	stdlib/ft_calloc.c \
