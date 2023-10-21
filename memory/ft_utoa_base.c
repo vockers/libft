@@ -17,47 +17,51 @@ static	unsigned int	get_radix(char *base)
 {
 	unsigned int	radix;
 
+	if (!base)
+		return (0);
 	radix = 0;
 	while (base[radix])
 		radix++;
 	return (radix);
 }
 
-static char	*utoa_base_radix(unsigned int n, char *base, int radix)
+static int	count_digits(unsigned int num, int radix)
 {
-	char		*a;
-	static int	index = 0;
-	static int	len = 1;
+	int	count;
 
-	index = 0;
-	if (n / radix != 0)
+	if (num == 0)
+		return (1);
+	count = 0;
+	while (num > 0)
 	{
-		len++;
-		a = utoa_base_radix(n / radix, base, radix);
-		if (!a)
-			return (NULL);
-		a[index++] = base[n % radix];
+		count++;
+		num /= radix;
 	}
-	else
-	{
-		a = (char *)malloc(sizeof(char) * (len + 1));
-		if (!a)
-			return (NULL);
-		a[index++] = base[n % radix];
-		a[len] = '\0';
-		len = 1;
-	}
-	return (a);
+	return (count);
 }
 
-char	*ft_utoa_base(unsigned int n, char *base)
+char	*ft_utoa_base(unsigned int num, char *base)
 {
-	int		radix;
+	char			*ret;
+	int				len;
+	int				radix;
 
 	radix = get_radix(base);
 	if (radix <= 1)
+		return (0);
+	len = count_digits(num, radix);
+	ret = (char *)ft_calloc(len + 1, sizeof(char));
+	if (!ret)
 		return (NULL);
-	return (utoa_base_radix(n, base, radix));
+	ret[len] = '\0';
+	if (num == 0)
+		ret[0] = base[0];
+	while (num > 0)
+	{
+		ret[--len] = base[num % radix];
+		num /= radix;
+	}
+	return (ret);
 }
 
 // #include <limits.h>
@@ -70,4 +74,5 @@ char	*ft_utoa_base(unsigned int n, char *base)
 // 	printf("%s\n%x\n\n", ft_utoa_base(234, "0123456789abcdef"), 234);
 // 	printf("%s\n%x\n\n", ft_utoa_base(62321, "0123456789abcdef"), 62321);
 // 	printf("%s\n%x\n\n", ft_utoa_base(UINT_MAX, "0123456789abcdef"), UINT_MAX);
+// 	printf("%s\n", ft_utoa_base(254, "01"));
 // }

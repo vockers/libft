@@ -13,12 +13,10 @@
 #ifndef LIBFT_MEMORY_H
 # define LIBFT_MEMORY_H
 
-int				ft_abs(int x);
-unsigned int	ft_uabs(int x);
 int				ft_atoi(const char *str);
 char			*ft_itoa(int n);
+char			*ft_utoa(unsigned int num);
 char			*ft_itoa_base(int n, char *base);
-char			*ft_utoa(unsigned int n);
 char			*ft_utoa_base(unsigned int n, char *base);
 
 #endif

@@ -12,24 +12,20 @@
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int num)
 {
-	char	*a;
 	char	*tmp;
+	char	*ret;
 
-	if (n < 0)
+	if (num < 0)
 	{
-		tmp = ft_utoa((unsigned int)-n);
-		if (!tmp)
-			return (NULL);
-		a = ft_strjoin("-", tmp);
+		tmp = ft_utoa(-num);
+		ret = ft_strjoin("-", tmp);
 		free(tmp);
-		if (!a)
-			return (NULL);
 	}
 	else
-		a = ft_utoa((unsigned int)n);
-	return (a);
+		ret = ft_utoa(num);
+	return (ret);
 }
 
 // #include <stdio.h>

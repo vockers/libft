@@ -26,7 +26,6 @@ SRC			= \
 	io/ft_putstr_fd.c \
 	io/ft_putunbr_fd.c \
 	io/ft_putunbr_base_fd.c \
-	memory/ft_abs.c \
 	memory/ft_atoi.c \
 	memory/ft_calloc.c \
 	memory/ft_itoa.c \

@@ -12,31 +12,39 @@
 
 #include "libft.h"
 
-char	*ft_utoa(unsigned int n)
+static int	count_digits(unsigned int num)
 {
-	char		*a;
-	static int	index = 0;
-	static int	len = 1;
+	int	count;
 
-	index = 0;
-	if (n / 10 != 0)
+	if (num == 0)
+		return (1);
+	count = 0;
+	while (num > 0)
 	{
-		len++;
-		a = ft_utoa(n / 10);
-		if (!a)
-			return (NULL);
-		a[index++] = n % 10 + '0';
+		count++;
+		num /= 10;
 	}
-	else
+	return (count);
+}
+
+char	*ft_utoa(unsigned int num)
+{
+	char			*ret;
+	int				len;
+
+	len = count_digits(num);
+	ret = (char *)ft_calloc(len + 1, sizeof(char));
+	if (!ret)
+		return (NULL);
+	ret[len] = '\0';
+	if (num == 0)
+		ret[0] = '0';
+	while (num > 0)
 	{
-		a = (char *)malloc(sizeof(char) * len + 1);
-		if (!a)
-			return (NULL);
-		a[index++] = n % 10 + '0';
-		a[len] = '\0';
-		len = 1;
+		ret[--len] = (num % 10) + '0';
+		num /= 10;
 	}
-	return (a);
+	return (ret);
 }
 
 // #include <stdio.h>
