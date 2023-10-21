@@ -18,12 +18,3 @@ int	ft_isdigit(int c)
 		return (LIBFT_IS_DIGIT);
 	return (0);
 }
-
-// #include <stdio.h>
-// #include <ctype.h>
-
-// int main()
-// {
-// 	printf("%d\n", ft_isdigit('5'));
-// 	printf("%d\n", isdigit('5'));
-// }

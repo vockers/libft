@@ -18,12 +18,3 @@ int	ft_isalpha(int c)
 		return (LIBFT_IS_ALPHA);
 	return (0);
 }
-
-// #include <stdio.h>
-// #include <ctype.h>
-
-// int main()
-// {
-// 	printf("%d\n", ft_isalpha(68));
-// 	printf("%d\n", isalpha(68));
-// }

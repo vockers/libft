@@ -18,12 +18,3 @@ int	ft_isprint(int c)
 		return (LIBFT_IS_PRINT);
 	return (0);
 }
-
-// #include <stdio.h>
-// #include <ctype.h>
-
-// int main()
-// {
-// 	printf("%d\n", ft_isprint('5'));
-// 	printf("%d\n", isprint('5'));
-// }

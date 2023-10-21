@@ -20,12 +20,3 @@ int	ft_isalnum(int c)
 		return (LIBFT_IS_ALNUM);
 	return (0);
 }
-
-// #include <stdio.h>
-// #include <ctype.h>
-
-// int main()
-// {
-// 	printf("%d\n", ft_isalnum(68));
-// 	printf("%d\n", isalnum(68));
-// }
