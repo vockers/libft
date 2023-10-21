@@ -28,6 +28,7 @@ SRC			= \
 	memory/ft_calloc.c \
 	memory/ft_itoa.c \
 	memory/ft_utoa.c \
+	memory/ft_ultoa_base.c \
 	memory/ft_utoa_base.c \
 	string/ft_bzero.c \
 	string/ft_memchr.c \
