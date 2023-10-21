@@ -16,8 +16,7 @@ int	ft_putnbr_fd(int n, int fd)
 {
 	if (n < 0)
 	{
-		write(fd, "-", 1);
-		return (ft_putunbr_fd((unsigned int)-n, fd) + 1);
+		return (ft_putchar_fd('-', fd) + ft_putunbr_fd((unsigned int)-n, fd));
 	}
 	return (ft_putunbr_fd((unsigned int)n, fd));
 }

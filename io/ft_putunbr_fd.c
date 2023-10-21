@@ -26,7 +26,7 @@ static int	putnbr_recursive(unsigned int num, char *buffer, int index)
 
 int	ft_putunbr_fd(unsigned int n, int fd)
 {
-	char	buffer[11];
+	char	buffer[10];
 	int		len;
 
 	len = putnbr_recursive(n, buffer, 0);
