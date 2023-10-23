@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# include "conversions/libft_conversions.h"
 # include "ctype/libft_ctype.h"
 # include "string/libft_string.h"
 # include "io/libft_io.h"
