@@ -45,9 +45,12 @@ static int	ft_strclen(const char *str, char c)
 
 static char	**ft_delete_strs(char **strs)
 {
+	char	**s;
+
+	s = strs;
 	while (*strs)
 		free(*strs++);
-	free(strs);
+	free(s);
 	return (NULL);
 }
 
