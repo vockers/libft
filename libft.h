@@ -20,6 +20,7 @@
 
 # include "conversions/libft_conversions.h"
 # include "ctype/libft_ctype.h"
+# include "printf/ft_printf.h" 
 # include "string/libft_string.h"
 # include "io/libft_io.h"
 # include "memory/libft_memory.h"

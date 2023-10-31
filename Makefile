@@ -37,6 +37,15 @@ SRC			= \
 	memory/ft_memcpy.c \
 	memory/ft_memmove.c \
 	memory/ft_memset.c \
+	printf/ft_printf.c \
+	printf/ft_printf_convert.c \
+	printf/ft_printf_flags.c \
+	printf/ft_printf_parse.c \
+	printf/ft_printf_char.c \
+	printf/ft_printf_hex.c \
+	printf/ft_printf_int.c \
+	printf/ft_printf_ptr.c \
+	printf/ft_printf_str.c \
 	string/ft_split.c \
 	string/ft_strchr.c \
 	string/ft_strcpy.c \

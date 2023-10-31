@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   libft_ctype.h                                      :+:    :+:            */
+/*   ft_printf_char.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/10/19 18:59:29 by vockers       #+#    #+#                 */
-/*   Updated: 2023/10/19 18:59:29 by vockers       ########   odam.nl         */
+/*   Created: 2023/10/26 11:18:08 by vockers       #+#    #+#                 */
+/*   Updated: 2023/10/26 11:18:08 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_CTYPE_H
-# define LIBFT_CTYPE_H
+#include "libft.h"
 
-enum
+char	*ft_convert_char(char c, t_format fmt)
 {
-	LIBFT_IS_ALNUM	= 1 << 3,
-	LIBFT_IS_ALPHA	= 1 << 10,
-	LIBFT_IS_DIGIT	= 1 << 11,
-	LIBFT_IS_PRINT	= 1 << 14
-};
+	char	*ret;
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
-
-#endif
+	ret = ft_strdup(" ");
+	ret = ft_apply_padding(ret, fmt.width, fmt.flags & FFLAG_MINUS);
+	if (fmt.flags & FFLAG_MINUS)
+		ret[0] = c;
+	else
+		ret[ft_strlen(ret) - 1] = c;
+	return (ret);
+}
