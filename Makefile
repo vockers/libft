@@ -30,6 +30,7 @@ SRC			= \
 	io/ft_putnbr_fd.c \
 	io/ft_putstr_fd.c \
 	io/ft_putunbr_fd.c \
+	io/get_next_line.c \
 	memory/ft_bzero.c \
 	memory/ft_calloc.c \
 	memory/ft_memchr.c \

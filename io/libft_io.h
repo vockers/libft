@@ -20,5 +20,6 @@ int		ft_putnbr_fd(int n, int fd);
 int		ft_putptr_fd(void *ptr, int fd);
 int		ft_putunbr_fd(unsigned int n, int fd);
 int		ft_putunbr_base_fd(unsigned int n, char *base, int fd);
+char	*get_next_line(int fd);
 
 #endif
