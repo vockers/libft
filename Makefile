@@ -33,6 +33,7 @@ SRC			= \
 	io/get_next_line.c \
 	memory/ft_bzero.c \
 	memory/ft_calloc.c \
+	memory/ft_free_strs.c \
 	memory/ft_memchr.c \
 	memory/ft_memcmp.c \
 	memory/ft_memcpy.c \
