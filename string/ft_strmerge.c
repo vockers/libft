@@ -18,7 +18,8 @@
 char	*ft_strmerge(char *s1, char *s2)
 {
 	char	*new;
-	int		i;
+	size_t	i;
+	size_t	j;
 
 	if (!s1 || !s2)
 		return (NULL);
@@ -26,10 +27,12 @@ char	*ft_strmerge(char *s1, char *s2)
 	if (new != NULL)
 	{
 		i = 0;
-		while (*s1)
-			new[i++] = *s1++;
-		while (*s2)
-			new[i++] = *s2++;
+		j = 0;
+		while (s1[j])
+			new[i++] = s1[j++];
+		j = 0;
+		while (s2[j])
+			new[i++] = s2[j++];
 		new[i] = '\0';
 	}
 	free(s1);
