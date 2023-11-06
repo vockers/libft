@@ -12,6 +12,9 @@
 
 #include "libft.h"
 
+/*
+ *	@brief Same as ft_strjoin but frees s1 and s2
+ */
 char	*ft_strmerge(char *s1, char *s2)
 {
 	char	*new;

@@ -1,4 +1,6 @@
-NAME		= libft.a
+BUILD_DIR	= build
+OBJ_DIR		= $(BUILD_DIR)/.obj
+NAME		= $(BUILD_DIR)/libft.a
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -I.
 
@@ -68,18 +70,22 @@ SRC			= \
 	string/ft_strtrim.c \
 	string/ft_substr.c \
 
-OBJS		= $(SRC:.c=.o)
+OBJS		= $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
+
+test:
+	@echo $(OBJS)
 
 $(NAME): $(OBJS)
 	ar -rcs $@ $^
 
-clean:
-	-rm -f $(OBJS)
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c -o $@ $^
 
-fclean: clean
-	-rm -f $(NAME)
+clean:
+	-rm -rf $(BUILD_DIR)
 
 re: fclean all
 
