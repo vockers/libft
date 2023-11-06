@@ -24,14 +24,3 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_bzero(new, nmemb * size);
 	return (new);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-// 	void *ft_res = ft_calloc(-5, -5);
-// 	void *std_res = calloc(-5, -5);
-// 	printf("%p\n", ft_res);
-// 	printf("%p\n", std_res);
-// 	return 0;
-// }

@@ -33,15 +33,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-
-// #include <stdio.h>
-// #include <bsd/string.h>
-
-// int main()
-// {
-// 	char *haystack	= "aaxx";
-// 	char *needle	= "xx";
-// 	haystack = ft_strnstr((void*)0, needle, 3);
-// 	// haystack = strnstr((void*)0, needle, 3);
-// 	return 0;
-// }

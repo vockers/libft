@@ -22,12 +22,3 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-// #include <stdio.h>
-// #include <string.h>
-
-// int main()
-// {
-// 	// printf("%s\n", ft_strchr("teste", 357));
-// 	printf("%s\n", strchr("teste", 357));
-// }

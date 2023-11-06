@@ -82,13 +82,3 @@ char	**ft_split(char const *s, char c)
 	new[i] = NULL;
 	return (new);
 }
-
-// int main()
-// {
-// 	char **strs = ft_split(" Hello,  ,  world!   ", ' ');
-// 	while (*strs)
-// 	{
-// 		printf("%s\n", *strs);
-// 		strs++;
-// 	}
-// }

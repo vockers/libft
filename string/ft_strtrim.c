@@ -23,10 +23,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i--;
 	return (ft_substr(s1, 0, i + 1));
 }
-
-// int main()
-// {
-// 	char *str = ", Hello, world!  ";
-// 	printf("%s\n", ft_strtrim(str, " , "));
-// 	return 0;
-// }

@@ -46,15 +46,3 @@ char	*ft_utoa(unsigned int num)
 	}
 	return (ret);
 }
-
-// #include <stdio.h>
-// #include <limits.h>
-
-// int	main(void)
-// {
-// 	printf("%s\n", ft_utoa(0));
-// 	printf("%s\n", ft_utoa(5));
-// 	printf("%s\n", ft_utoa(25));
-// 	printf("%s\n", ft_utoa(234));
-// 	printf("%s\n", ft_utoa(INT_MAX));
-// }

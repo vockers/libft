@@ -35,19 +35,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		ft_memcpy(d, src, n);
 	return (dest);
 }
-
-// #include <string.h>
-
-// int main()
-// {
-// 	char str[] = "hello, world!";
-// 	char str_1[] = "test";
-// 	ft_memmove(str, str+2, 6);
-// 	printf("%s\n", str);
-
-// 	char str2[] = "hello, world!";
-// 	char str_2[] = "test";
-// 	memmove(str2, str2+2, 6);
-// 	printf("%s\n", str2);
-// 	return 0;
-// }

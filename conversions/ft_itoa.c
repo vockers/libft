@@ -27,21 +27,3 @@ char	*ft_itoa(int num)
 		ret = ft_utoa(num);
 	return (ret);
 }
-
-// #include <stdio.h>
-// #include <limits.h>
-
-// int	main(void)
-// {
-// 	printf("%s\n", ft_itoa(0));
-// 	printf("%s\n", ft_itoa(5));
-// 	printf("%s\n", ft_itoa(25));
-// 	printf("%s\n", ft_itoa(234));
-// 	printf("%s\n\n", ft_itoa(INT_MAX));
-
-// 	printf("%s\n", ft_itoa(-0));
-// 	printf("%s\n", ft_itoa(-5));
-// 	printf("%s\n", ft_itoa(-25));
-// 	printf("%s\n", ft_itoa(-234));
-// 	printf("%s\n", ft_itoa(INT_MIN));
-// }

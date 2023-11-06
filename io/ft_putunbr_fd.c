@@ -33,21 +33,3 @@ int	ft_putunbr_fd(unsigned int n, int fd)
 	write(fd, buffer, len);
 	return (len);
 }
-
-// #include <limits.h>
-// int	main(void)
-// {
-// 	ft_putunbr_fd(0, 1);
-// 	write(1, "\n", 1);
-// 	ft_putunbr_fd(4, 1);
-// 	write(1, "\n", 1);
-// 	ft_putunbr_fd(25, 1);
-// 	write(1, "\n", 1);
-// 	ft_putunbr_fd(358, 1);
-// 	write(1, "\n", 1);
-// 	ft_putunbr_fd(1242564, 1);
-// 	write(1, "\n", 1);
-// 	ft_putunbr_fd(INT_MAX, 1);
-// 	write(1, "\n", 1);
-// 	return (0);
-// }

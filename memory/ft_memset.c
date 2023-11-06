@@ -24,13 +24,3 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-
-// #include <unistd.h>
-
-// int	main()
-// {
-// 	char	arr[10];
-// 	memset(arr, 325, 10);
-// 	write(1, arr, 10);
-// 	return 0;
-// }

@@ -40,16 +40,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	*d = '\0';
 	return (d_len + (s - src));
 }
-
-// #include <stdio.h>
-// #include <bsd/string.h>
-
-// int main()
-// {
-// 	char dst[10] = "a";
-// 	printf("%lu\n", ft_strlcat(dst, "lorem ipsum dolor sit amet", 0));
-// 	char dst2[10] = "a";
-// 	printf("%lu\n", strlcat(dst2, "lorem ipsum dolor sit amet", 1));
-
-// 	return 0;
-// }
