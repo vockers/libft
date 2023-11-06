@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_free_strs.c                                     :+:    :+:            */
+/*   ft_strmerge.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/11/03 14:15:42 by vockers       #+#    #+#                 */
-/*   Updated: 2023/11/03 14:15:42 by vockers       ########   odam.nl         */
+/*   Created: 2023/10/02 14:43:14 by vockers       #+#    #+#                 */
+/*   Updated: 2023/10/03 14:57:48 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free_strs(char **strs)
+char	*ft_strmerge(char *s1, char *s2)
 {
-	int	i;
+	char	*new;
+	int		i;
 
-	i = 0;
-	while (strs[i])
+	if (!s1 || !s2)
+		return (NULL);
+	new = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (new != NULL)
 	{
-		free(strs[i]);
-		i++;
+		i = 0;
+		while (*s1)
+			new[i++] = *s1++;
+		while (*s2)
+			new[i++] = *s2++;
+		new[i] = '\0';
 	}
-	free(strs);
+	free(s1);
+	free(s2);
+	return (new);
 }

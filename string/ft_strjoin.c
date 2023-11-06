@@ -30,11 +30,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	new[i] = '\0';
 	return (new);
 }
-
-// int main()
-// {
-// 	char *s1 = "hello, ";
-// 	char *s2 = "world!";
-// 	printf("%s\n", ft_strjoin(s1, s2));
-// 	return 0;
-// }
