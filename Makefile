@@ -74,9 +74,6 @@ OBJS		= $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
-test:
-	@echo $(OBJS)
-
 $(NAME): $(OBJS)
 	ar -rcs $@ $^
 
