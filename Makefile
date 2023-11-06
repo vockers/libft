@@ -59,6 +59,7 @@ SRC			= \
 	string/ft_strlcpy.c \
 	string/ft_strlen.c \
 	string/ft_strmapi.c \
+	string/ft_strmerge.c \
 	string/ft_strncmp.c \
 	string/ft_strndup.c \
 	string/ft_strnlen.c \
