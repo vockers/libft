@@ -27,7 +27,8 @@ int	ft_vdprintf(int fd, const char *format, va_list ap)
 	len = 0;
 	while (percent != NULL)
 	{
-		output = ft_output_append_format(output, &format, &len, percent - format);
+		output = ft_output_append_format(output, &format, \
+			&len, percent - format);
 		arg_format = ft_parse_format(&percent, ap);
 		arg = ft_convert_arg(arg_format, ap);
 		output = ft_output_append_arg(output, arg, &len, arg_format);
