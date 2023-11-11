@@ -36,6 +36,12 @@ typedef struct s_format
 int			ft_printf(const char *format, ...);
 int			ft_vprintf(const char *format, va_list ap);
 
+int			ft_print_output(char *output, size_t len, int fd);
+char		*ft_output_append_format(char *output, const char **format,
+				size_t *len, size_t format_len);
+char		*ft_output_append_arg(char *output, char *arg,
+				size_t *s1_len, t_format format);
+
 t_format	ft_parse_format(char **str, va_list args);
 
 char		*ft_apply_padding(char *str, int width, int minus);

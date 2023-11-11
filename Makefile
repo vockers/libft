@@ -50,6 +50,7 @@ SRC			= \
 	printf/ft_printf_int.c \
 	printf/ft_printf_ptr.c \
 	printf/ft_printf_str.c \
+	printf/ft_printf_utils.c \
 	string/ft_split.c \
 	string/ft_strchr.c \
 	string/ft_strcpy.c \
