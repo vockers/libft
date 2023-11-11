@@ -35,6 +35,7 @@ typedef struct s_format
 
 int			ft_printf(const char *format, ...);
 int			ft_vprintf(const char *format, va_list ap);
+int			ft_dprintf(int fd, const char *format, ...);
 
 int			ft_print_output(char *output, size_t len, int fd);
 char		*ft_output_append_format(char *output, const char **format,
