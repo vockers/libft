@@ -7,6 +7,7 @@ CFLAGS		= -Wall -Wextra -Werror -I.
 SRC			= \
 	conversions/ft_abs.c \
 	conversions/ft_atoi.c \
+	conversions/ft_atol.c \
 	conversions/ft_itoa.c \
 	conversions/ft_utoa.c \
 	conversions/ft_ultoa_base.c \

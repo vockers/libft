@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   libft_conversions.h                                :+:    :+:            */
+/*   ft_atol.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vockers <vockers@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/10/19 19:04:59 by vockers       #+#    #+#                 */
-/*   Updated: 2023/10/19 19:04:59 by vockers       ########   odam.nl         */
+/*   Created: 2023/11/19 15:48:37 by vockers       #+#    #+#                 */
+/*   Updated: 2023/11/19 15:48:37 by vockers       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_CONVERSIONS_H
-# define LIBFT_CONVERSIONS_H
+#include "libft.h"
 
-unsigned int	ft_abs(int num);
-int				ft_atoi(const char *str);
-long			ft_atol(const char *str);
-char			*ft_itoa(int n);
-char			*ft_utoa(unsigned int num);
-char			*ft_itoa_base(int n, char *base);
-char			*ft_utoa_base(unsigned int n, char *base);
-char			*ft_ultoa_base(unsigned long num, char *base);
+long	ft_atol(const char *str)
+{
+	long	num;
+	int		sign;
 
-#endif
+	sign = 1;
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
+	{
+		str++;
+	}
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	num = 0;
+	while (*str >= '0' && *str <= '9')
+	{
+		num = num * 10 + (*str - '0');
+		str++;
+	}
+	return (num * sign);
+}
