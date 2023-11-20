@@ -54,6 +54,7 @@ SRC			= \
 	printf/ft_printf_utils.c \
 	string/ft_split.c \
 	string/ft_strchr.c \
+	string/ft_strcmp.c \
 	string/ft_strcpy.c \
 	string/ft_strdup.c \
 	string/ft_striteri.c \
