@@ -17,9 +17,11 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdbool.h>
 
 # include "conversions/libft_conversions.h"
 # include "ctype/libft_ctype.h"
+# include "dict/libft_dict.h"
 # include "printf/ft_printf.h" 
 # include "string/libft_string.h"
 # include "io/libft_io.h"

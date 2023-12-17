@@ -19,6 +19,8 @@ SRC			= \
 	ctype/ft_isprint.c \
 	ctype/ft_tolower.c \
 	ctype/ft_toupper.c \
+	dict/ft_dict.c \
+	dict/ft_dict_utils.c \
 	list/ft_lstadd_back.c \
 	list/ft_lstadd_front.c \
 	list/ft_lstclear.c \
