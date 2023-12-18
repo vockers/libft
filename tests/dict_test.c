@@ -46,5 +46,6 @@ int	main(void)
 	printf("%d\n", val);
 	val = *(int *)ft_dict_get(d, "key_15");
 	printf("%d\n", val);
+	ft_dict_free(d);
 	return (0);
 }

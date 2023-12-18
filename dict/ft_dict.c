@@ -61,6 +61,15 @@ int	ft_dict_set(t_dict *dict, const char *key, void *value)
 
 void	ft_dict_free(t_dict *dict)
 {
+	size_t	i;
+
+	i = 0;
+	while (i < dict->capacity)
+	{
+		if (dict->entries[i].key != NULL)
+			free(dict->entries[i].key);
+		i++;
+	}
 	free(dict->entries);
 	free(dict);
 }
