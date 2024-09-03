@@ -27,5 +27,6 @@
 # include "io/libft_io.h"
 # include "memory/libft_memory.h"
 # include "list/libft_list.h"
+# include "vector/libft_vector.h"
 
 #endif

@@ -2,6 +2,8 @@
 build
 a.out
 *.o
+.cache
 libft.a
 *.txt
 libftTester/
+compile_commands.json

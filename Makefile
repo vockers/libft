@@ -76,6 +76,7 @@ SRC			= \
 	string/ft_strrchr.c \
 	string/ft_strtrim.c \
 	string/ft_substr.c \
+	vector/ft_vector.c \
 
 OBJS		= $(SRC:%.c=$(OBJ_DIR)/%.o)
 
