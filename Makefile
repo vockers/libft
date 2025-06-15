@@ -5,6 +5,7 @@ CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -I.
 
 SRC			= \
+	argp/ft_argp.c \
 	bits/ft_byteswap.c \
 	conversions/ft_abs.c \
 	conversions/ft_atoi.c \
