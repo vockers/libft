@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <stdbool.h>
 
+# include "bits/libft_bits.h"
 # include "conversions/libft_conversions.h"
 # include "ctype/libft_ctype.h"
 # include "dict/libft_dict.h"
