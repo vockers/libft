@@ -1,7 +1,7 @@
 BUILD_DIR	= build
 OBJ_DIR		= $(BUILD_DIR)/.obj
 NAME		= $(BUILD_DIR)/libft.a
-CC			= cc
+CC			= clang
 CFLAGS		= -Wall -Wextra -Werror -I.
 
 SRC			= \
@@ -58,6 +58,7 @@ SRC			= \
 	printf/ft_printf_str.c \
 	printf/ft_printf_utils.c \
 	string/ft_split.c \
+	string/ft_strcasecmp.c \
 	string/ft_strchr.c \
 	string/ft_strcmp.c \
 	string/ft_strcpy.c \
