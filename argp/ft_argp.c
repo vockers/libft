@@ -42,7 +42,15 @@ static int argp_value(const t_argp_option* opt, const char* arg, int* arg_parsed
 
 static void argp_short_opt(const t_argp_option* opts, char key, const char* arg, int* arg_parsed)
 {
+    if (!key) {
+        error(EXIT_FAILURE, 0, "invalid option -- ''");
+    }
+
     for (; opts->type != FT_ARGP_OPT_END; opts++) {
+        if (opts->key == 0) {
+            continue; // Skip options without a key
+        }
+
         if (opts->key == key) {
             if (argp_value(opts, arg, arg_parsed) != ARGP_SUCCESS) {
                 error(EXIT_FAILURE, 0, "option requires an argument -- '%c'", key);
@@ -58,6 +66,10 @@ static void
 argp_long_opt(const t_argp_option* opts, const char* name, const char* arg, int* arg_parsed)
 {
     for (; opts->type != FT_ARGP_OPT_END; opts++) {
+        if (opts->name == NULL) {
+            continue; // Skip options without a name
+        }
+
         if (ft_strcmp(opts->name, name) == 0) {
             if (argp_value(opts, arg, arg_parsed) != ARGP_SUCCESS) {
                 error(EXIT_FAILURE, 0, "option requires an argument -- '%s'", name);
@@ -82,7 +94,7 @@ void ft_argp_parse(int argc, char** argv, int* arg_index, const t_argp_option* o
             const char* arg = i + 1 < argc && (argv[i + 1][0] != '-') ? argv[i + 1] : NULL;
             // Check for long options
             if (argv[i][1] == '-') {
-                argp_long_opt(opts, &argv[1][2], arg, &arg_parsed);
+                argp_long_opt(opts, &argv[i][2], arg, &arg_parsed);
             } else {
                 // Check for short options
                 argp_short_opt(opts, argv[i][1], arg, &arg_parsed);
