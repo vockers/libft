@@ -7,7 +7,7 @@ static void argp_init(const t_argp_option* opts)
     for (; opts->type != FT_ARGP_OPT_END; opts++) {
         switch (opts->type) {
         case FT_ARGP_OPT_BOOL:
-            *(int*)(opts->value) = 0;
+            *(bool*)(opts->value) = 0;
             break;
         case FT_ARGP_OPT_STRING:
             *(const char**)(opts->value) = NULL; // Initialize string options to NULL
@@ -22,7 +22,7 @@ static int argp_value(const t_argp_option* opt, const char* arg, int* arg_parsed
 {
     switch (opt->type) {
     case FT_ARGP_OPT_BOOL:
-        *(int*)(opt->value) = 1;
+        *(bool*)(opt->value) = 1;
         break;
     case FT_ARGP_OPT_STRING:
         if (arg == NULL) {
