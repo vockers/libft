@@ -25,6 +25,6 @@ typedef struct s_argp_option
     const char*     help;  // Help text for the option
 } t_argp_option;
 
-void ft_argp_parse(int argc, char** argv, int* arg_index, const t_argp_option* opts);
+int ft_argp_parse(int argc, char** argv, int* arg_index, const t_argp_option* opts);
 
 #endif

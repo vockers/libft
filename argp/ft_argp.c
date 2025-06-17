@@ -2,7 +2,7 @@
 
 #include <error.h>
 
-static void argp_init(const t_argp_option* opts)
+static int argp_init(const t_argp_option* opts)
 {
     for (; opts->type != FT_ARGP_OPT_END; opts++) {
         switch (opts->type) {
@@ -13,9 +13,12 @@ static void argp_init(const t_argp_option* opts)
             *(const char**)(opts->value) = NULL; // Initialize string options to NULL
             break;
         default:
-            error(EXIT_FAILURE, 0, "invalid option type for '%d'", opts->type);
+            error(0, 0, "invalid option type for '%d'", opts->type);
+            return ARGP_ERR_INVALID_OPT;
         }
     }
+
+    return ARGP_SUCCESS;
 }
 
 static int argp_value(const t_argp_option* opt, const char* arg, int* arg_parsed)
@@ -33,17 +36,17 @@ static int argp_value(const t_argp_option* opt, const char* arg, int* arg_parsed
         *arg_parsed = 1; // Indicate that an argument was parsed
         break;
     default:
-        error(EXIT_FAILURE, 0, "invalid option type for '%d'", opt->type);
-        break;
+        error(0, 0, "invalid option type for '%d'", opt->type);
+        return ARGP_ERR_INVALID_OPT;
     }
 
     return ARGP_SUCCESS;
 }
 
-static void argp_short_opt(const t_argp_option* opts, char key, const char* arg, int* arg_parsed)
+static int argp_short_opt(const t_argp_option* opts, char key, const char* arg, int* arg_parsed)
 {
     if (!key) {
-        error(EXIT_FAILURE, 0, "invalid option -- ''");
+        error(0, 0, "invalid option -- ''");
     }
 
     for (; opts->type != FT_ARGP_OPT_END; opts++) {
@@ -52,17 +55,24 @@ static void argp_short_opt(const t_argp_option* opts, char key, const char* arg,
         }
 
         if (opts->key == key) {
-            if (argp_value(opts, arg, arg_parsed) != ARGP_SUCCESS) {
-                error(EXIT_FAILURE, 0, "option requires an argument -- '%c'", key);
+            int status = argp_value(opts, arg, arg_parsed);
+            if (status == ARGP_SUCCESS) {
+                return ARGP_SUCCESS;
+            } else if (status == ARGP_ERR_NO_ARG) {
+                error(0, 0, "option requires an argument -- '%c'", key);
+                return ARGP_ERR_NO_ARG;
             }
-            return;
+            error(0, 0, "invalid option type for '%c'", key);
+            return ARGP_ERR_INVALID_OPT;
         }
     }
 
-    error(EXIT_FAILURE, 0, "invalid option -- '%c'", key);
+    error(0, 0, "invalid option -- '%c'", key);
+
+    return ARGP_ERR_INVALID_OPT;
 }
 
-static void
+static int
 argp_long_opt(const t_argp_option* opts, const char* name, const char* arg, int* arg_parsed)
 {
     for (; opts->type != FT_ARGP_OPT_END; opts++) {
@@ -71,17 +81,24 @@ argp_long_opt(const t_argp_option* opts, const char* name, const char* arg, int*
         }
 
         if (ft_strcmp(opts->name, name) == 0) {
-            if (argp_value(opts, arg, arg_parsed) != ARGP_SUCCESS) {
-                error(EXIT_FAILURE, 0, "option requires an argument -- '%s'", name);
+            int status = argp_value(opts, arg, arg_parsed);
+            if (status == ARGP_SUCCESS) {
+                return ARGP_SUCCESS;
+            } else if (status == ARGP_ERR_NO_ARG) {
+                error(0, 0, "option requires an argument -- '%s'", name);
+                return ARGP_ERR_NO_ARG;
             }
-            return;
+            error(0, 0, "invalid option type for '%s'", name);
+            return ARGP_ERR_INVALID_OPT;
         }
     }
 
-    error(EXIT_FAILURE, 0, "invalid option -- '%s'", name);
+    error(0, 0, "invalid option -- '%s'", name);
+
+    return ARGP_ERR_INVALID_OPT;
 }
 
-void ft_argp_parse(int argc, char** argv, int* arg_index, const t_argp_option* opts)
+int ft_argp_parse(int argc, char** argv, int* arg_index, const t_argp_option* opts)
 {
     argp_init(opts);
 
@@ -94,10 +111,16 @@ void ft_argp_parse(int argc, char** argv, int* arg_index, const t_argp_option* o
             const char* arg = i + 1 < argc && (argv[i + 1][0] != '-') ? argv[i + 1] : NULL;
             // Check for long options
             if (argv[i][1] == '-') {
-                argp_long_opt(opts, &argv[i][2], arg, &arg_parsed);
+                int status = argp_long_opt(opts, &argv[i][2], arg, &arg_parsed);
+                if (status != ARGP_SUCCESS) {
+                    return status;
+                }
             } else {
                 // Check for short options
-                argp_short_opt(opts, argv[i][1], arg, &arg_parsed);
+                int status = argp_short_opt(opts, argv[i][1], arg, &arg_parsed);
+                if (status != ARGP_SUCCESS) {
+                    return status;
+                }
             }
         } else if (arg_index && *arg_index == -1) {
             if (!arg_parsed)
@@ -106,4 +129,6 @@ void ft_argp_parse(int argc, char** argv, int* arg_index, const t_argp_option* o
             arg_parsed = 0; // Reset arg_parsed for the next argument
         }
     }
+
+    return ARGP_SUCCESS;
 }
