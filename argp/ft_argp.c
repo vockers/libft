@@ -28,10 +28,11 @@ static int argp_value(const t_argp_option* opt, const char* arg, int* arg_parsed
         *(bool*)(opt->value) = 1;
         break;
     case FT_ARGP_OPT_STRING:
-        if (arg == NULL) {
+        if (arg == NULL)
             return ARGP_ERR_NO_ARG; // Argument is required for string options
-        }
-        *(const char**)(opt->value) = arg;
+
+        if (*(const char**)(opt->value) == NULL)
+            *(const char**)(opt->value) = arg;
 
         *arg_parsed = 1; // Indicate that an argument was parsed
         break;
